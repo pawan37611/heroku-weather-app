@@ -11,26 +11,14 @@ class Weather extends Component
     {
         const loc = this
             .props
-            .GetLocationByIp()
-            .then((response) => {
-                console.log('aaaaaaaaaaaaaaaaa');
-
-                console.log(this.props.location);
-            })
-
+            .GetLocationByIp();
     };
 
-    getloc()
+    getweather()
     {
         this
             .props
-            .GetWeatherByLoc(this.props.location.location.latitude, this.props.location.location.longitude)
-            .then((response) => {
-               
-                console.log(this.props.weather);
-               
-            })
-
+            .GetWeatherByLoc(this.props.location.location.latitude, this.props.location.location.longitude);
     }
 
     render()
@@ -39,7 +27,7 @@ class Weather extends Component
             return (
                 <div>
 
-                    <button onClick={() => this.getloc()}>Get Weather Info</button>
+                    <button onClick={() => this.getweather()}>Get Weather Information</button>
                 </div>
             )
         }
@@ -57,7 +45,8 @@ class Weather extends Component
                     <br/>
                 </span>
                 <span>
-                    {this.props.weather.main.temp} K
+                    {this.props.weather.main.temp}
+                    K
                     <br/></span>
                 <img src={imgUrl}/>
                 <br/>
